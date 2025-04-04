@@ -5,15 +5,15 @@
 
   color-scheme: light dark;
   color: rgba(94, 16, 16, 0.87);
-  background: url('src/images/mp1.jpeg');
+  background: url("src/images/mp1.jpg");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
   backdrop-filter: blur(4px); /* Reduced blur strength */
   -webkit-backdrop-filter: blur(4px);
   position: relative;
-  min-height: 100vh; 
-  width: 100%; 
+  min-height: 100vh;
+  width: 100%;
   overflow: hidden; /* Prevent content from breaking blur effect */
 
   font-synthesis: none;
@@ -24,8 +24,8 @@
 
 :root::before {
   content: "";
-  position: fixed; 
-  top: -20px; 
+  position: fixed;
+  top: -20px;
   left: -20px;
   right: -20px;
   bottom: -20px;
@@ -49,7 +49,7 @@ body {
   place-items: center;
   min-width: 320px;
   min-height: 100vh;
-  overflow-x: hidden; 
+  overflow-x: hidden;
 }
 
 h1 {
@@ -92,7 +92,7 @@ button:focus-visible {
 .chatbox {
   position: absolute;
   bottom: 10px;
-  left:400px;
+  left: 400px;
   width: 300px;
   background: white;
   border-radius: 10px;
@@ -148,7 +148,9 @@ button:focus-visible {
 .logo {
   height: 90px; /* Adjust height as needed */
   width: auto;
-  filter: drop-shadow(1px 1px 2px rgba(0, 0, 0, 0.5)); /* Add shadow for better visibility */
+  filter: drop-shadow(
+    1px 1px 2px rgba(0, 0, 0, 0.5)
+  ); /* Add shadow for better visibility */
 }
 
 /* Responsive adjustments for logo */
@@ -157,7 +159,7 @@ button:focus-visible {
     right: 15px;
     bottom: 15px;
   }
-  
+
   .logo {
     height: 35px;
   }
@@ -168,7 +170,7 @@ button:focus-visible {
     right: 10px;
     bottom: 10px;
   }
-  
+
   .logo {
     height: 30px;
   }
