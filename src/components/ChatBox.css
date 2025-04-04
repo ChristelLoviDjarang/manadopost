@@ -1,0 +1,243 @@
+/* ChatBox.css - Tambahan global styles */
+/* Dapat disimpan di file terpisah dan diimpor di aplikasi Anda */
+
+@keyframes pulse {
+    0% { opacity: 1; }
+    50% { opacity: 0.4; }
+    100% { opacity: 1; }
+  }
+  
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  
+  @keyframes messageFadeIn {
+    from { opacity: 0; transform: translateY(5px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  
+  /* Menyelesaikan isu responsif di perangkat mobile */
+  @media screen and (max-width: 768px) {
+    .chatbox-container {
+      bottom: 10px !important;
+    }
+    
+    .input-container textarea {
+      font-size: 16px !important; /* Mencegah zoom pada iOS */
+    }
+  }
+  
+  /* Dukungan untuk landscape mode */
+  @media screen and (max-height: 500px) and (orientation: landscape) {
+    .chatbox-container {
+      max-width: 60% !important;
+    }
+    
+    .message-container {
+      max-height: 100px !important;
+    }
+  }
+  
+  /* Fix dark mode dan kontras */
+  @media (prefers-color-scheme: dark) {
+    .chatbox-container {
+      background-color: rgba(0, 0, 0, 0.7) !important;
+    }
+    
+    .message.assistant {
+      background-color: rgba(0, 0, 139, 0.2) !important; /* Dark blue for assistant */
+    }
+  }
+  
+  .chatbox-wrapper {
+      position: absolute;
+      bottom: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 100%;
+      max-width: 400px;
+      z-index: 1000;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    
+    .toggle-chat-btn {
+      margin-bottom: 10px;
+      padding: 8px 16px;
+      background-color: rgba(0, 0, 0, 0.6);
+      color: black; /* Changed text color to black */
+      border: none;
+      border-radius: 20px;
+      cursor: pointer;
+      font-weight: bold;
+      transition: background-color 0.2s;
+    }
+    
+    .toggle-chat-btn:hover {
+      background-color: rgba(0, 0, 0, 0.8);
+    }
+    
+    .chatbox {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      background-color: rgba(0, 0, 0, 0.5);
+      backdrop-filter: blur(10px);
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+      animation: fadeIn 0.3s ease-out;
+    }
+    
+    .chat-messages {
+      padding: 16px;
+      max-height: 300px;
+      overflow-y: auto;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      scrollbar-width: thin;
+      scrollbar-color: rgba(255, 255, 255, 0.2) transparent;
+    }
+    
+    .chat-messages::-webkit-scrollbar {
+      width: 6px;
+    }
+    
+    .chat-messages::-webkit-scrollbar-track {
+      background: transparent;
+    }
+    
+    .chat-messages::-webkit-scrollbar-thumb {
+      background-color: rgba(255, 255, 255, 0.2);
+      border-radius: 6px;
+    }
+    
+    .empty-chat {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100px;
+      color: black; /* Changed text color to black */
+      font-style: italic;
+    }
+    
+    .message-bubble {
+      padding: 10px 14px;
+      border-radius: 18px;
+      max-width: 80%;
+      word-break: break-word;
+      animation: messageFadeIn 0.3s ease-out;
+    }
+    
+    .user-message {
+      align-self: flex-end;
+      background-color: black; /* Changed user message color to black */
+      color: black; /* Changed text color to black */
+      border-bottom-right-radius: 4px;
+    }
+    
+    .assistant-message {
+      align-self: flex-start;
+      background-color: rgba(0, 0, 139, 0.2); /* Changed assistant message color to dark blue */
+      color: black; /* Changed text color to black */
+      border-bottom-left-radius: 4px;
+    }
+    
+    .message-content {
+      font-size: 14px;
+      line-height: 1.4;
+      color: black; /* Changed text color to black */
+    }
+    
+    .chat-input-container {
+      display: flex;
+      padding: 10px;
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+    }
+    
+    .chat-input {
+      flex: 1;
+      padding: 10px 14px;
+      border: none;
+      border-radius: 20px;
+      background-color: rgba(255, 255, 255, 0.2);
+      color: black; /* Changed text color to black */
+      resize: none;
+      outline: none;
+      font-family: inherit;
+    }
+    
+    .chat-input::placeholder {
+      color: rgba(0, 0, 0, 0.6); /* Changed placeholder color to black */
+    }
+    
+    .send-button {
+        width: 40px;
+        height: 40px;
+        margin-left: 8px;
+        background-color: rgba(66, 135, 245, 0.8);
+        color: black; /* Changed text color to black */
+        border: none;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        transition: background-color 0.2s;
+      }
+      
+      .send-button:hover {
+        background-color: rgba(66, 135, 245, 1);
+      }
+      
+      .send-button:disabled {
+        background-color: rgba(66, 135, 245, 0.4);
+        cursor: not-allowed;
+      }
+      
+      /* Animations */
+      
+      /* Media queries for responsive design */
+      @media (max-width: 768px) {
+        .chatbox-wrapper {
+          max-width: 90%;
+        }
+        
+        .chat-messages {
+          max-height: 250px;
+        }
+      }
+      
+      @media (max-width: 480px) {
+        .chatbox-wrapper {
+          max-width: 95%;
+          bottom: 10px;
+        }
+        
+        .message-bubble {
+          max-width: 85%;
+        }
+        
+        .chat-messages {
+          max-height: 200px;
+          padding: 12px;
+        }
+        
+        .chat-input {
+          font-size: 14px;
+          padding: 8px 12px;
+        }
+        
+        .send-button {
+          width: 36px;
+          height: 36px;
+        }
+        
+        .toggle-chat-btn {
+          font-size: 14px;
+          padding: 6px 12px;
+        }
+      }
